@@ -25,11 +25,20 @@
 :root[data-theme="one-dark"]         { --bg:#282c34; --fg:#abb2bf; --muted:#7f8796; --line:#3a3f4b; --panel:#21252b; --accent:#61afef; --code:#1e2227; color-scheme: dark; }
 :root[data-theme="monokai"]          { --bg:#272822; --fg:#f8f8f2; --muted:#a6a68a; --line:#3e3d32; --panel:#1e1f1c; --accent:#a6e22e; --code:#1c1d19; color-scheme: dark; }
 
-/* reading font: Readerly (SIL OFL, see fonts/OFL.txt) */
-@font-face { font-family: "Readerly"; src: url(fonts/Readerly-Regular.woff2)    format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "Readerly"; src: url(fonts/Readerly-Bold.woff2)       format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
-@font-face { font-family: "Readerly"; src: url(fonts/Readerly-Italic.woff2)     format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: "Readerly"; src: url(fonts/Readerly-BoldItalic.woff2) format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
+/* reading font: CMU Serif = Computer Modern, the TeX font (SIL OFL, see fonts/OFL.txt) */
+@font-face { font-family: "CMU Serif"; src: url(fonts/CMUSerif-500-roman.woff2)  format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "CMU Serif"; src: url(fonts/CMUSerif-500-italic.woff2) format("woff2"); font-weight: 400 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "CMU Serif"; src: url(fonts/CMUSerif-700-roman.woff2)  format("woff2"); font-weight: 600 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "CMU Serif"; src: url(fonts/CMUSerif-700-italic.woff2) format("woff2"); font-weight: 600 900; font-style: italic; font-display: swap; }
+
+/* headings, titles and the side nav: Cormorant Garamond (SIL OFL, see fonts/OFL-CormorantGaramond.txt) */
+@font-face { font-family: "Cormorant Garamond"; src: url(fonts/CormorantGaramond-latin-500.woff2) format("woff2"); font-weight: 500; font-style: normal; font-display: swap; unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Cormorant Garamond"; src: url(fonts/CormorantGaramond-latin-ext-500.woff2) format("woff2"); font-weight: 500; font-style: normal; font-display: swap; unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Cormorant Garamond"; src: url(fonts/CormorantGaramond-latin-600.woff2) format("woff2"); font-weight: 600; font-style: normal; font-display: swap; unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Cormorant Garamond"; src: url(fonts/CormorantGaramond-latin-ext-600.woff2) format("woff2"); font-weight: 600; font-style: normal; font-display: swap; unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Cormorant Garamond"; src: url(fonts/CormorantGaramond-latin-700.woff2) format("woff2"); font-weight: 700; font-style: normal; font-display: swap; unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Cormorant Garamond"; src: url(fonts/CormorantGaramond-latin-ext-700.woff2) format("woff2"); font-weight: 700; font-style: normal; font-display: swap; unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+:root { --head: "Cormorant Garamond", "EB Garamond", Garamond, "Times New Roman", serif; }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -72,16 +81,17 @@ aside {
   width: 280px; flex-shrink: 0; position: sticky; top: 56px; align-self: flex-start;
   height: calc(100vh - 56px); overflow-y: auto; padding: 20px 16px; border-right: 1px solid var(--line);
 }
-aside a { display: block; padding: 4px 10px; border-radius: 6px; color: var(--fg); font-size: 14.5px; line-height: 1.4; margin: 1px 0; }
+aside a { display: block; padding: 3px 10px; border-radius: 6px; color: var(--fg); font-family: var(--head); font-size: 18.5px; font-weight: 500; line-height: 1.25; margin: 1px 0; }
 aside a:hover { background: var(--panel); text-decoration: none; }
-aside a.active { background: var(--panel); color: var(--accent); font-weight: 600; }
-aside a.group { margin-top: 16px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 700; }
+aside a.active { background: var(--panel); color: var(--accent); font-weight: 700; }
+aside a.group { margin-top: 18px; font-size: 15px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 700; }
 aside a.group.active { color: var(--accent); }
 
 main { flex: 1; min-width: 0; padding: 40px 48px 24px; }
 #content, #pager, footer { max-width: 760px; }
-h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 .4em; letter-spacing: -.02em; }
-h2 { margin: 2em 0 .5em; font-size: 1.4rem; padding-top: .5em; border-top: 1px solid var(--line); }
+h1, h2, .card b, .year, #pager a, .posts .t { font-family: var(--head); }
+h1 { font-size: 2.9rem; font-weight: 700; line-height: 1.1; margin: 0 0 .35em; letter-spacing: -.01em; }
+h2 { margin: 1.8em 0 .45em; font-size: 1.95rem; font-weight: 600; line-height: 1.15; padding-top: .45em; border-top: 1px solid var(--line); }
 .prose > h2:first-child { border-top: 0; margin-top: 0; padding-top: 0; }
 .lead { font-size: 1.15rem; color: var(--muted); }
 .muted { color: var(--muted); }
@@ -89,7 +99,7 @@ h2 { margin: 2em 0 .5em; font-size: 1.4rem; padding-top: .5em; border-top: 1px s
 .rating { font-family: ui-monospace, Menlo, Consolas, monospace; letter-spacing: 1px; color: var(--accent); }
 .portrait { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; margin-bottom: 12px; }
 
-.prose { font-family: "Readerly", Georgia, "Times New Roman", "Noto Naskh Arabic", "Geeza Pro", serif; font-size: 1.14rem; line-height: 1.75; }
+.prose { font-family: "CMU Serif", "Latin Modern Roman", "Computer Modern", Georgia, "Times New Roman", "Noto Naskh Arabic", "Geeza Pro", serif; font-size: 1.28rem; line-height: 1.62; font-feature-settings: "liga", "kern"; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
 .prose img { max-width: 100%; height: auto; }
 .prose blockquote { margin: 1em 0; padding: .2em 1em; border-left: 3px solid var(--accent); color: var(--muted); }
 .prose hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
@@ -102,19 +112,19 @@ pre code { background: none; padding: 0; }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
 .card { display: block; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); color: var(--fg); }
 .card:hover { border-color: var(--accent); text-decoration: none; }
-.card b { display: block; margin-bottom: 2px; }
+.card b { display: block; margin-bottom: 2px; font-size: 1.45rem; font-weight: 700; line-height: 1.2; }
 .card span { color: var(--muted); font-size: 14px; }
 
-.year { margin: 1.6em 0 .3em; font-weight: 700; color: var(--muted); }
+.year { margin: 1.4em 0 .2em; font-weight: 700; font-size: 1.5rem; color: var(--muted); }
 .posts { list-style: none; margin: 0; padding: 0; }
 .posts a { display: flex; gap: 12px; align-items: baseline; padding: 6px 0; color: var(--fg); border-bottom: 1px solid var(--line); }
 .posts a:hover { color: var(--accent); text-decoration: none; }
-.posts .t { flex: 1; }
+.posts .t { flex: 1; font-size: 1.3rem; font-weight: 600; line-height: 1.25; }
 .posts .d { color: var(--muted); font-size: 14px; white-space: nowrap; }
 
 #pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 48px; }
-#pager a { flex: 1; padding: 12px 16px; border: 1px solid var(--line); border-radius: 8px; color: var(--fg); }
-#pager a small { display: block; color: var(--muted); }
+#pager a { flex: 1; padding: 12px 16px; border: 1px solid var(--line); border-radius: 8px; color: var(--fg); font-size: 1.25rem; font-weight: 600; line-height: 1.25; }
+#pager a small { display: block; color: var(--muted); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 12px; font-weight: 400; }
 #pager a:last-child { text-align: right; }
 footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; color: var(--muted); font-size: 14px; }
 

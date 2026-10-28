@@ -1,2 +1,0 @@
-Newsreader (c) 2020 The Newsreader Project Authors (http://github.com/productiontype/Newsreader)
-Readerly (c) 2026 Nico Verbruggen (https://github.com/nicoverbruggen/readerly)

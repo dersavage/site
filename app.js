@@ -123,20 +123,23 @@ async function page(p) {
   }
 }
 
-/* ---------- landing-page stars ----------
-   Cheap by design: one small pre-drawn glow sprite, ~50 stars, 30 fps cap, 1x resolution,
-   stops completely off the home page and while the tab is hidden, and is static if the
-   visitor has "reduce motion" turned on. */
+/* ---------- landing-page background ----------
+   Change BG_MODE to "stars" for faint twinkling stars instead of floating squares.
+   Cheap by design: one canvas, a few dozen shapes, 30 fps cap, 1x resolution, stops completely
+   off the home page and while the tab is hidden, and slows to a gentle drift if the visitor
+   has "reduce motion" turned on. */
+const BG_MODE = "squares";                                   // "squares" | "stars"
 const Stars = (() => {
   const cv = $("#stars"), cx = cv.getContext("2d");
   const reduce = matchMedia("(prefers-reduced-motion: reduce)");
-  let W = 0, H = 0, stars = [], sprite = null, raf = 0, last = 0, on = false;
+  let W = 0, H = 0, stars = [], sprite = null, rgb = "150,205,255", raf = 0, last = 0, on = false;
 
   function makeSprite() {                                    // light blue on dark themes, deeper blue on light ones
     const bg = getComputedStyle(document.documentElement).getPropertyValue("--bg").trim();
     const n = parseInt(bg.slice(1), 16);
     const lum = isNaN(n) ? 0 : (0.2126 * (n >> 16 & 255) + 0.7152 * (n >> 8 & 255) + 0.0722 * (n & 255)) / 255;
-    const c = lum > 0.5 ? "70,140,235" : "150,205,255";
+    const c = rgb = lum > 0.5 ? "70,140,235" : "150,205,255";
+    if (BG_MODE !== "stars") return;                          // squares are plain fills, no sprite needed
     sprite = document.createElement("canvas"); sprite.width = sprite.height = 32;
     const g = sprite.getContext("2d"), r = g.createRadialGradient(16, 16, 0, 16, 16, 16);
     r.addColorStop(0, `rgba(${c},1)`); r.addColorStop(.25, `rgba(${c},.55)`); r.addColorStop(1, `rgba(${c},0)`);
@@ -144,6 +147,17 @@ const Stars = (() => {
   }
   function seed() {
     W = cv.width = innerWidth; H = cv.height = innerHeight;
+    if (BG_MODE === "squares") {
+      const n = Math.max(10, Math.min(30, Math.round(W * H / 42000)));
+      stars = Array.from({ length: n }, () => ({
+        x: Math.random() * W, y: Math.random() * H,
+        s: 14 + Math.random() * 64,                           // side length in px
+        a: .07 + Math.random() * .12,                         // low alpha: a quiet background
+        vx: (Math.random() - .5) * 8, vy: -(10 + Math.random() * 28),   // float upward
+        r: Math.random() * 6.28, vr: (Math.random() - .5) * .3          // slow tumble
+      }));
+      return;
+    }
     const n = Math.min(70, Math.round(W * H / 20000));
     stars = Array.from({ length: n }, () => ({
       x: Math.random() * W, y: Math.random() * H,
@@ -155,6 +169,21 @@ const Stars = (() => {
   }
   function draw(dt) {
     cx.clearRect(0, 0, W, H);
+    if (BG_MODE === "squares") {
+      cx.fillStyle = `rgb(${rgb})`; cx.strokeStyle = `rgb(${rgb})`; cx.lineWidth = 1;
+      for (const s of stars) {
+        s.x += s.vx * dt; s.y += s.vy * dt; s.r += s.vr * dt;
+        if (s.y < -s.s) { s.y = H + s.s; s.x = Math.random() * W; }
+        if (s.x < -s.s) s.x = W + s.s; else if (s.x > W + s.s) s.x = -s.s;
+        const f = Math.min(1, (H - s.y) / (H * .2) + .2, s.y / (H * .25) + .2);   // fade near bottom and top edges
+        const c = Math.cos(s.r), n = Math.sin(s.r), h = s.s / 2;
+        cx.setTransform(c, n, -n, c, s.x, s.y);
+        cx.globalAlpha = s.a * Math.max(0, f); cx.fillRect(-h, -h, s.s, s.s);
+        cx.globalAlpha = s.a * Math.max(0, f) * 1.8; cx.strokeRect(-h, -h, s.s, s.s);
+      }
+      cx.setTransform(1, 0, 0, 1, 0, 0); cx.globalAlpha = 1;
+      return;
+    }
     for (const s of stars) {
       s.x += s.vx * dt; s.y += s.vy * dt; s.p += s.w * dt;
       if (s.y < -20) { s.y = H + 20; s.x = Math.random() * W; }
@@ -167,12 +196,12 @@ const Stars = (() => {
   function loop(t) {
     raf = requestAnimationFrame(loop);
     if (t - last < 33) return;                                // ~30 fps is plenty for slow drift
-    draw(Math.min((t - last) / 1000, .1)); last = t;
+    // with the system "Reduce motion" setting on, drift at 30% speed instead of stopping
+    draw(Math.min((t - last) / 1000, .1) * (reduce.matches ? .3 : 1)); last = t;
   }
   function run() {
     cancelAnimationFrame(raf);
     if (!on) return;
-    if (reduce.matches) { draw(0); return; }
     last = performance.now(); raf = requestAnimationFrame(loop);
   }
   let rt;
