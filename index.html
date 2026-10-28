@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jan Savage</title>
+<meta name="description" content="Ancient languages, CS/Software, Book reviews, Essays.">
+<link rel="stylesheet" href="style.css">
+<script>
+  /* apply saved theme before first paint */
+  try {
+    var t = localStorage.getItem("theme");
+    document.documentElement.dataset.theme = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<canvas id="stars" aria-hidden="true" hidden></canvas>
+
+<header class="top">
+  <button id="menu-btn" aria-label="Menu">☰</button>
+  <a class="brand" href="#"><span class="mark">~</span> % cd /home/<span class="cursor"></span></a>
+  <button id="search-btn" class="search-btn">Search <kbd>Ctrl K</kbd></button>
+  <nav class="top-links">
+    <a href="https://github.com/dersavage">GitHub</a>
+    <a href="https://www.youtube.com/channel/UCK2_xE5D22Sl8u8kKRHVHsQ">YouTube</a>
+    <select id="theme-select" aria-label="Theme">
+      <optgroup label="Light">
+        <option value="light">Light</option>
+        <option value="paper">Paper</option>
+        <option value="sepia">Sepia</option>
+        <option value="solarized-light">Solarized Light</option>
+        <option value="gruvbox-light">Gruvbox Light</option>
+        <option value="catppuccin-latte">Catppuccin Latte</option>
+        <option value="rose-pine-dawn">Rosé Pine Dawn</option>
+        <option value="github-light">GitHub Light</option>
+        <option value="tokyo-night-day">Tokyo Night Day</option>
+      </optgroup>
+      <optgroup label="Dark">
+        <option value="dark">Dark</option>
+        <option value="dracula">Dracula</option>
+        <option value="nord">Nord</option>
+        <option value="solarized-dark">Solarized Dark</option>
+        <option value="gruvbox">Gruvbox</option>
+        <option value="tokyo-night">Tokyo Night</option>
+        <option value="catppuccin">Catppuccin Mocha</option>
+        <option value="rose-pine">Rosé Pine</option>
+        <option value="one-dark">One Dark</option>
+        <option value="monokai">Monokai</option>
+      </optgroup>
+    </select>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside id="sidebar"><nav id="nav"></nav></aside>
+
+  <main>
+    <div id="content"></div>
+    <div id="pager"></div>
+    <footer>
+      <span>© <span id="year"></span> Jan M. Savage</span>
+    </footer>
+  </main>
+</div>
+
+<!-- Home page: edit freely -->
+<template id="home">
+  <img src="img/kalima.png" class="portrait" alt="Portrait">
+  <h1>Jan Savage</h1>
+  <p class="lead">Ancient languages, CS/Software, Book reviews, Essays.</p>
+  <h2>Browse</h2>
+  <div class="cards" id="home-cards"></div>
+</template>
+
+<div id="modal" hidden>
+  <div class="modal-box">
+    <input id="q" type="text" placeholder="Search everything" autocomplete="off">
+    <ul id="results"></ul>
+  </div>
+</div>
+
+<script src="vendor/marked.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

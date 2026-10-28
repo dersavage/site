@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+"""Add a post to the site.
+
+  ./new essays "My new essay"          create content/essays/my-new-essay.md and register it
+  ./new fiction "Author: Book" -r "☆☆☆★★★★★★★"      (optional rating for reviews)
+  ./new essays "My new essay" --publish              also commit and push
+  ./new --sections                     list section ids
+
+Sections are whatever is in pages.json (essays, fiction, non-fiction, cs).
+After creating, write your text in the file it prints, then `git add -A && git commit -m post && git push`
+(or just add --publish up front and it does that for you).
+"""
+import argparse, datetime, json, os, re, subprocess, sys, unicodedata
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+MANIFEST = os.path.join(ROOT, "pages.json")
+
+
+def slugify(s):
+    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+", "-", s).strip("-") or "post"
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("section", nargs="?")
+    ap.add_argument("title", nargs="?")
+    ap.add_argument("-r", "--rating", help="star rating text, shown next to reviews")
+    ap.add_argument("-d", "--date", default=datetime.date.today().isoformat(), help="YYYY-MM-DD (default: today)")
+    ap.add_argument("--publish", action="store_true", help="git add, commit and push afterwards")
+    ap.add_argument("--sections", action="store_true")
+    a = ap.parse_args()
+
+    with open(MANIFEST, encoding="utf-8") as f:
+        m = json.load(f)
+    ids = [s["id"] for s in m["sections"]]
+
+    if a.sections:
+        print("\n".join(f'{s["id"]:12} {s["title"]}' for s in m["sections"]))
+        return
+    if not a.section or not a.title:
+        ap.error("usage: ./new <section> \"<title>\"")
+    if a.section not in ids:
+        sys.exit(f'unknown section "{a.section}". choose one of: {", ".join(ids)}')
+    try:
+        datetime.date.fromisoformat(a.date)
+    except ValueError:
+        sys.exit("date must look like 2026-10-28")
+
+    slug = slugify(a.title)
+    pid = f"{a.section}/{slug}"
+    if any(p["id"] == pid for p in m["pages"]):
+        sys.exit(f"{pid} already exists")
+
+    rel = f"content/{a.section}/{slug}.md"
+    path = os.path.join(ROOT, rel)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("Write your post here. Markdown works: *italics*, **bold**, [links](https://example.com),\n"
+                "images as ![alt](img/name.png), and `code`.\n")
+
+    entry = {"id": pid, "section": a.section, "title": a.title, "date": a.date, "file": rel}
+    if a.rating:
+        entry["rating"] = a.rating
+    # newest first within its section, same order the site displays
+    pos = next((i for i, p in enumerate(m["pages"])
+                if p["section"] == a.section and p["date"] <= a.date), None)
+    if pos is None:
+        pos = max((i for i, p in enumerate(m["pages"]) if p["section"] == a.section), default=len(m["pages"]) - 1) + 1
+    m["pages"].insert(pos, entry)
+    with open(MANIFEST, "w", encoding="utf-8") as f:
+        json.dump(m, f, indent=1, ensure_ascii=False)
+        f.write("\n")
+
+    print(f"created  {rel}\nedit it, then publish:  git add -A && git commit -m \"post\" && git push")
+
+    if a.publish:
+        run = lambda *c: subprocess.run(c, cwd=ROOT, check=True)
+        run("git", "add", "-A")
+        run("git", "commit", "-m", f"post: {a.title}")
+        run("git", "push")
+
+
+if __name__ == "__main__":
+    main()

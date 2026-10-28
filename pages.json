@@ -1,0 +1,266 @@
+{
+ "sections": [
+  {
+   "id": "cs",
+   "title": "Computer Science"
+  },
+  {
+   "id": "essays",
+   "title": "Essays"
+  },
+  {
+   "id": "fiction",
+   "title": "Fiction Review"
+  },
+  {
+   "id": "non-fiction",
+   "title": "Non-fiction"
+  }
+ ],
+ "pages": [
+  {
+   "id": "about",
+   "section": "",
+   "title": "About",
+   "date": "",
+   "file": "content/about/about.html"
+  },
+  {
+   "id": "cs/logo",
+   "section": "cs",
+   "title": "Logo manual (complete)",
+   "date": "2026-09-29",
+   "url": "https://jansavagelogo.surge.sh/"
+  },
+  {
+   "id": "essays/why_lit",
+   "section": "essays",
+   "title": "Why read fiction?",
+   "date": "2026-09-30",
+   "file": "content/essays/why_lit.html"
+  },
+  {
+   "id": "essays/the_antifragile_mindset",
+   "section": "essays",
+   "title": "The antifragile mindset",
+   "date": "2026-09-19",
+   "file": "content/essays/the_antifragile_mindset.html"
+  },
+  {
+   "id": "essays/why_write",
+   "section": "essays",
+   "title": "Why keep writing",
+   "date": "2026-08-03",
+   "file": "content/essays/why_write.html"
+  },
+  {
+   "id": "essays/iamalive",
+   "section": "essays",
+   "title": "I'm alive",
+   "date": "2025-11-08",
+   "file": "content/essays/iamalive.html"
+  },
+  {
+   "id": "essays/adhd",
+   "section": "essays",
+   "title": "The Advantages of ADHD",
+   "date": "2024-03-14",
+   "file": "content/essays/adhd.html"
+  },
+  {
+   "id": "essays/point_of_pointlessness",
+   "section": "essays",
+   "title": "The Point of Pointlessness?",
+   "date": "2023-09-16",
+   "file": "content/essays/point_of_pointlessness.html"
+  },
+  {
+   "id": "essays/whypraise",
+   "section": "essays",
+   "title": "Does Allah (ج) _need_ our praise?",
+   "date": "2023-09-09",
+   "file": "content/essays/whypraise.html"
+  },
+  {
+   "id": "essays/perpetuation_igno",
+   "section": "essays",
+   "title": "The Perpetuation of ignorance",
+   "date": "2023-07-09",
+   "file": "content/essays/perpetuation_igno.html"
+  },
+  {
+   "id": "essays/isdifficult_good",
+   "section": "essays",
+   "title": "Is difficult good?",
+   "date": "2023-06-06",
+   "file": "content/essays/isdifficult_good.html"
+  },
+  {
+   "id": "essays/noble-quran-translations",
+   "section": "essays",
+   "title": "The Noble Qur'aan's Translations",
+   "date": "2023-04-09",
+   "file": "content/essays/noble-quran-translations.html"
+  },
+  {
+   "id": "fiction/framley_parsonage",
+   "section": "fiction",
+   "title": "Trollope: The Framley Parsonage",
+   "date": "2026-09-15",
+   "file": "content/fiction/framley_parsonage.html",
+   "rating": "☆☆★★★★★★★★"
+  },
+  {
+   "id": "fiction/he_knew_he_was_right",
+   "section": "fiction",
+   "title": "Trollope: He knew he was right",
+   "date": "2026-08-22",
+   "file": "content/fiction/he_knew_he_was_right.html",
+   "rating": "☆☆☆★★★★★★★"
+  },
+  {
+   "id": "fiction/the_eustace_diamonds",
+   "section": "fiction",
+   "title": "Trollope: The Eustace Diamonds",
+   "date": "2026-08-03",
+   "file": "content/fiction/the_eustace_diamonds.html",
+   "rating": "☆☆☆★★★★★★★"
+  },
+  {
+   "id": "fiction/the-monk",
+   "section": "fiction",
+   "title": "Matthew Lewis: The Monk",
+   "date": "2026-07-23",
+   "file": "content/fiction/the-monk.html",
+   "rating": "☆☆☆★★★★★★★"
+  },
+  {
+   "id": "fiction/a_hero_of_our_time",
+   "section": "fiction",
+   "title": "Lermontov: A Hero of Our Time",
+   "date": "2026-06-11",
+   "file": "content/fiction/a_hero_of_our_time.html",
+   "rating": "☆★★★★★★★★★"
+  },
+  {
+   "id": "fiction/queen_of_spades",
+   "section": "fiction",
+   "title": "Pushkin: Queen of Spades",
+   "date": "2025-03-08",
+   "file": "content/fiction/queen_of_spades.html",
+   "rating": "☆★★★★★★★★★"
+  },
+  {
+   "id": "fiction/the_italian",
+   "section": "fiction",
+   "title": "Radcliffe: The Italian",
+   "date": "2025-01-18",
+   "file": "content/fiction/the_italian.html",
+   "rating": "☆☆☆☆☆★★★★★"
+  },
+  {
+   "id": "fiction/adjustment_team",
+   "section": "fiction",
+   "title": "PKD: The Adjustment Team",
+   "date": "2024-11-10",
+   "file": "content/fiction/adjustment_team.html",
+   "rating": "☆☆☆★★★★★★★"
+  },
+  {
+   "id": "fiction/dune",
+   "section": "fiction",
+   "title": "Herbert: Dune",
+   "date": "2024-03-05",
+   "file": "content/fiction/dune.html",
+   "rating": "☆☆☆☆☆☆☆☆☆f"
+  },
+  {
+   "id": "fiction/diary_of_madman",
+   "section": "fiction",
+   "title": "Gogol: Diary of a Madman",
+   "date": "2024-02-21",
+   "file": "content/fiction/diary_of_madman.html",
+   "rating": "☆★★★★★★★★★"
+  },
+  {
+   "id": "fiction/the-girl-with-the",
+   "section": "fiction",
+   "title": "Larsson: The Girl With...",
+   "date": "2023-09-06",
+   "file": "content/fiction/the-girl-with-the.html",
+   "rating": "☆☆☆☆☆☆☆☆☆☆"
+  },
+  {
+   "id": "fiction/the-hobbit",
+   "section": "fiction",
+   "title": "Tolkien's Hobbit",
+   "date": "2023-05-20",
+   "file": "content/fiction/the-hobbit.html",
+   "rating": "☆☆☆☆☆☆☆★★★"
+  },
+  {
+   "id": "fiction/middlemarch",
+   "section": "fiction",
+   "title": "Eliot: Middlemarch",
+   "date": "2022-11-21",
+   "file": "content/fiction/middlemarch.html",
+   "rating": "☆☆☆☆☆☆☆☆☆f"
+  },
+  {
+   "id": "fiction/-where-evil",
+   "section": "fiction",
+   "title": "Simak: Where Evil Resides",
+   "date": "2022-10-02",
+   "file": "content/fiction/-where-evil.html",
+   "rating": "☆☆☆☆☆☆☆☆☆★"
+  },
+  {
+   "id": "fiction/darker-than-amber",
+   "section": "fiction",
+   "title": "Macdonald: Darker than Amber",
+   "date": "2022-06-23",
+   "file": "content/fiction/darker-than-amber.html",
+   "rating": "☆☆☆☆☆☆☆☆★★"
+  },
+  {
+   "id": "non-fiction/game_theory101",
+   "section": "non-fiction",
+   "title": "Luce & Raifa: Games and decisions",
+   "date": "2026-10-08",
+   "file": "content/non-fiction/game_theory101.html",
+   "rating": "FREE ->->->"
+  },
+  {
+   "id": "non-fiction/verbal_judo",
+   "section": "non-fiction",
+   "title": "Elgin: The Gentle Art of Verbal Self-Defense",
+   "date": "2026-03-11",
+   "file": "content/non-fiction/verbal_judo.html",
+   "rating": "☆☆☆☆☆☆☆☆☆☆"
+  },
+  {
+   "id": "non-fiction/lets_have_healthy_children",
+   "section": "non-fiction",
+   "title": "Davis: Let's Have Healthy Children",
+   "date": "2025-06-06",
+   "file": "content/non-fiction/lets_have_healthy_children.html",
+   "rating": "☆☆☆★★★★★★★"
+  },
+  {
+   "id": "non-fiction/the_ruby_book",
+   "section": "non-fiction",
+   "title": "Matsumoto: Ruby Book",
+   "date": "2023-09-10",
+   "file": "content/non-fiction/the_ruby_book.html",
+   "rating": "☆☆☆★★★★★★★"
+  },
+  {
+   "id": "non-fiction/ayn-rand",
+   "section": "non-fiction",
+   "title": "Ayn Rand's every book",
+   "date": "2023-01-15",
+   "file": "content/non-fiction/ayn-rand.html",
+   "rating": "☆☆☆☆☆☆☆☆☆☆"
+  }
+ ]
+}
