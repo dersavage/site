@@ -8,10 +8,6 @@ let M, pages = [], byId = {}, bodies = {}, token = 0;
 const href = p => p.url || "#" + p.id;
 const ext = p => (p.url ? ' target="_blank" rel="noopener"' : "");
 const extClass = p => (p.url ? " ext" : "");
-function secLink(s) {            // a section that holds one external page links straight to it
-  const ps = pages.filter(p => p.section === s.id);
-  return ps.length === 1 && ps[0].url ? ps[0] : null;
-}
 
 /* ---------- load ---------- */
 async function boot() {
@@ -44,9 +40,7 @@ function buildNav() {
   let h = '<a href="#" data-id="">Home</a>';
   if (byId.about) h += '<a href="#about" data-id="about">About</a>';
   M.sections.forEach(s => {
-    const one = secLink(s);
-    h += `<a class="group${one ? " ext" : ""}" href="${one ? one.url : "#" + s.id}"${one ? ext(one) : ""} data-id="${s.id}">${esc(s.title)}</a>`;
-    if (one) return;                                       // single external link: the heading is the link
+    h += `<a class="group" href="#${s.id}" data-id="${s.id}">${esc(s.title)}</a>`;
     pages.filter(p => p.section === s.id).forEach(p => {
       h += `<a class="${extClass(p).trim()}" href="${href(p)}"${ext(p)} data-id="${p.id}">${esc(p.title)}</a>`;
     });
@@ -86,8 +80,8 @@ function home() {
   $("#content").appendChild($("#home").content.cloneNode(true));
   $("#home-cards")?.insertAdjacentHTML("beforeend", (byId.about ? '<a class="card" href="#about"><b>About</b><span>Who I am</span></a>' : "") +
     M.sections.map(s => {
-      const n = pages.filter(p => p.section === s.id).length, one = secLink(s);
-      return `<a class="card${one ? " ext" : ""}" href="${one ? one.url : "#" + s.id}"${one ? ext(one) : ""}><b>${esc(s.title)}</b>` +
+      const n = pages.filter(p => p.section === s.id).length;
+      return `<a class="card" href="#${s.id}"><b>${esc(s.title)}</b>` +
         `<span>${n} ${n === 1 ? "entry" : "entries"}</span></a>`;
     }).join(""));
   Stars.start();
@@ -101,7 +95,7 @@ function section(s) {
     if (y !== year) { html += (year ? "</ul>" : "") + `<div class="year">${y}</div><ul class="posts">`; year = y; }
     html += `<li><a class="${extClass(p).trim()}" href="${href(p)}"${ext(p)}><span class="t">${esc(p.title)}</span>` +
       (p.rating ? `<span class="rating">${esc(p.rating)}</span>` : "") +
-      `<span class="d">${fmt(p.date, { month: "short", day: "numeric" })}</span></a></li>`;
+      `<span class="d">${fmt(p.date, { year: "numeric", month: "short", day: "numeric" })}</span></a></li>`;
   });
   $("#content").innerHTML = html + (year ? "</ul>" : "");
 }
