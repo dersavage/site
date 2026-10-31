@@ -93,9 +93,10 @@ function section(s) {
   pages.filter(p => p.section === s.id).forEach(p => {
     const y = p.date.slice(0, 4);
     if (y !== year) { html += (year ? "</ul>" : "") + `<div class="year">${y}</div><ul class="posts">`; year = y; }
-    html += `<li><a class="${extClass(p).trim()}" href="${href(p)}"${ext(p)}><span class="t">${esc(p.title)}</span>` +
-      (p.rating ? `<span class="rating">${esc(p.rating)}</span>` : "") +
-      `<span class="d">${fmt(p.date, { year: "numeric", month: "short", day: "numeric" })}</span></a></li>`;
+    html += `<li><a class="${extClass(p).trim()}" href="${href(p)}"${ext(p)}>` +
+      `<span class="d">${fmt(p.date, { year: "numeric", month: "short", day: "numeric" })}</span>` +
+      `<span class="t">${esc(p.title)}</span>` +
+      (p.rating ? `<span class="rating">${esc(p.rating)}</span>` : "") + `</a></li>`;
   });
   $("#content").innerHTML = html + (year ? "</ul>" : "");
 }
