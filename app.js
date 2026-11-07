@@ -40,7 +40,10 @@ function buildNav() {
   let h = '<a href="#" data-id="">Home</a>';
   if (byId.about) h += '<a href="#about" data-id="about">About</a>';
   M.sections.forEach(s => {
-    h += `<a class="group" href="#${s.id}" data-id="${s.id}">${esc(s.title)}</a>`;
+    // a section with a "url" now lives in its own blog: link straight to it
+    h += s.url
+      ? `<a class="group ext" href="${esc(s.url)}" data-id="${s.id}">${esc(s.title)}</a>`
+      : `<a class="group" href="#${s.id}" data-id="${s.id}">${esc(s.title)}</a>`;
     pages.filter(p => p.section === s.id).forEach(p => {
       h += `<a class="${extClass(p).trim()}" href="${href(p)}"${ext(p)} data-id="${p.id}">${esc(p.title)}</a>`;
     });
@@ -59,8 +62,10 @@ function route() {
   Stars.stop();                                            // only the home page animates
   const h = decodeURIComponent(location.hash.slice(1));
   if (!h) return home();
+  if (M.moved && M.moved[h]) return location.replace(M.moved[h]);   // old #fiction/dune link -> its new blog post
   if (byId[h] && !byId[h].url) return page(byId[h]);
   const s = M.sections.find(s => s.id === h);
+  if (s && s.url) return location.replace(s.url);                    // old #fiction link -> the blog's front page
   if (s) return section(s);
   const el = document.getElementById(h);                     // in-page anchor (footnotes, headings)
   if (el && $("#content").contains(el)) { el.scrollIntoView(); return; }
@@ -80,6 +85,7 @@ function home() {
   $("#content").appendChild($("#home").content.cloneNode(true));
   $("#home-cards")?.insertAdjacentHTML("beforeend", (byId.about ? '<a class="card" href="#about"><b>About</b><span>Who I am</span></a>' : "") +
     M.sections.map(s => {
+      if (s.url) return `<a class="card" href="${esc(s.url)}"><b>${esc(s.title)}</b><span>Its own blog ↗</span></a>`;
       const n = pages.filter(p => p.section === s.id).length;
       return `<a class="card" href="#${s.id}"><b>${esc(s.title)}</b>` +
         `<span>${n} ${n === 1 ? "entry" : "entries"}</span></a>`;
