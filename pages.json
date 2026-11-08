@@ -1,71 +1,71 @@
 {
- "sections": [
-  {
-   "id": "cs",
-   "title": "Computer Science"
-  },
-  {
-   "id": "essays",
-   "title": "Essays",
-   "url": "https://dersavage.github.io/essays/"
-  },
-  {
-   "id": "fiction",
-   "title": "Fiction Review",
-   "url": "https://dersavage.github.io/fiction/"
-  },
-  {
-   "id": "non-fiction",
-   "title": "Non-fiction",
-   "url": "https://dersavage.github.io/non-fiction/"
+  "sections": [
+    {
+      "id": "cs",
+      "title": "Computer Science",
+      "url": "https://dersavage.github.io/cs/"
+    },
+    {
+      "id": "tutorials",
+      "title": "Tutorials",
+      "url": "https://dersavage.github.io/tutorials/"
+    },
+    {
+      "id": "essays",
+      "title": "Essays",
+      "url": "https://dersavage.github.io/essays/"
+    },
+    {
+      "id": "fiction",
+      "title": "Fiction Review",
+      "url": "https://dersavage.github.io/fiction/"
+    },
+    {
+      "id": "non-fiction",
+      "title": "Non-fiction",
+      "url": "https://dersavage.github.io/non-fiction/"
+    }
+  ],
+  "pages": [
+    {
+      "id": "about",
+      "section": "",
+      "title": "About",
+      "date": "",
+      "file": "content/about/about.html"
+    }
+  ],
+  "moved": {
+    "essays/why_lit": "https://dersavage.github.io/essays/posts/why-lit/",
+    "essays/the_antifragile_mindset": "https://dersavage.github.io/essays/posts/the-antifragile-mindset/",
+    "essays/why_write": "https://dersavage.github.io/essays/posts/why-write/",
+    "essays/iamalive": "https://dersavage.github.io/essays/posts/iamalive/",
+    "essays/adhd": "https://dersavage.github.io/essays/posts/adhd/",
+    "essays/point_of_pointlessness": "https://dersavage.github.io/essays/posts/point-of-pointlessness/",
+    "essays/whypraise": "https://dersavage.github.io/essays/posts/whypraise/",
+    "essays/perpetuation_igno": "https://dersavage.github.io/essays/posts/perpetuation-igno/",
+    "essays/isdifficult_good": "https://dersavage.github.io/essays/posts/isdifficult-good/",
+    "essays/noble-quran-translations": "https://dersavage.github.io/essays/posts/noble-quran-translations/",
+    "fiction/framley_parsonage": "https://dersavage.github.io/fiction/posts/framley-parsonage/",
+    "fiction/he_knew_he_was_right": "https://dersavage.github.io/fiction/posts/he-knew-he-was-right/",
+    "fiction/the_eustace_diamonds": "https://dersavage.github.io/fiction/posts/the-eustace-diamonds/",
+    "fiction/the-monk": "https://dersavage.github.io/fiction/posts/the-monk/",
+    "fiction/a_hero_of_our_time": "https://dersavage.github.io/fiction/posts/a-hero-of-our-time/",
+    "fiction/queen_of_spades": "https://dersavage.github.io/fiction/posts/queen-of-spades/",
+    "fiction/the_italian": "https://dersavage.github.io/fiction/posts/the-italian/",
+    "fiction/adjustment_team": "https://dersavage.github.io/fiction/posts/adjustment-team/",
+    "fiction/dune": "https://dersavage.github.io/fiction/posts/dune/",
+    "fiction/diary_of_madman": "https://dersavage.github.io/fiction/posts/diary-of-madman/",
+    "fiction/the-girl-with-the": "https://dersavage.github.io/fiction/posts/the-girl-with-the/",
+    "fiction/the-hobbit": "https://dersavage.github.io/fiction/posts/the-hobbit/",
+    "fiction/middlemarch": "https://dersavage.github.io/fiction/posts/middlemarch/",
+    "fiction/-where-evil": "https://dersavage.github.io/fiction/posts/where-evil/",
+    "fiction/darker-than-amber": "https://dersavage.github.io/fiction/posts/darker-than-amber/",
+    "non-fiction/game_theory101": "https://dersavage.github.io/non-fiction/posts/game-theory101/",
+    "non-fiction/verbal_judo": "https://dersavage.github.io/non-fiction/posts/verbal-judo/",
+    "non-fiction/lets_have_healthy_children": "https://dersavage.github.io/non-fiction/posts/lets-have-healthy-children/",
+    "non-fiction/the_ruby_book": "https://dersavage.github.io/non-fiction/posts/the-ruby-book/",
+    "non-fiction/ayn-rand": "https://dersavage.github.io/non-fiction/posts/ayn-rand/",
+    "cs/logo": "https://dersavage.github.io/cs/posts/logo-tutorial/"
   }
- ],
- "pages": [
-  {
-   "id": "about",
-   "section": "",
-   "title": "About",
-   "date": "",
-   "file": "content/about/about.html"
-  },
-  {
-   "id": "cs/logo",
-   "section": "cs",
-   "title": "Logo manual (complete)",
-   "date": "2026-09-29",
-   "url": "https://jansavagelogo.surge.sh/"
-  }
- ],
- "moved": {
-  "essays/why_lit": "https://dersavage.github.io/essays/posts/why-lit/",
-  "essays/the_antifragile_mindset": "https://dersavage.github.io/essays/posts/the-antifragile-mindset/",
-  "essays/why_write": "https://dersavage.github.io/essays/posts/why-write/",
-  "essays/iamalive": "https://dersavage.github.io/essays/posts/iamalive/",
-  "essays/adhd": "https://dersavage.github.io/essays/posts/adhd/",
-  "essays/point_of_pointlessness": "https://dersavage.github.io/essays/posts/point-of-pointlessness/",
-  "essays/whypraise": "https://dersavage.github.io/essays/posts/whypraise/",
-  "essays/perpetuation_igno": "https://dersavage.github.io/essays/posts/perpetuation-igno/",
-  "essays/isdifficult_good": "https://dersavage.github.io/essays/posts/isdifficult-good/",
-  "essays/noble-quran-translations": "https://dersavage.github.io/essays/posts/noble-quran-translations/",
-  "fiction/framley_parsonage": "https://dersavage.github.io/fiction/posts/framley-parsonage/",
-  "fiction/he_knew_he_was_right": "https://dersavage.github.io/fiction/posts/he-knew-he-was-right/",
-  "fiction/the_eustace_diamonds": "https://dersavage.github.io/fiction/posts/the-eustace-diamonds/",
-  "fiction/the-monk": "https://dersavage.github.io/fiction/posts/the-monk/",
-  "fiction/a_hero_of_our_time": "https://dersavage.github.io/fiction/posts/a-hero-of-our-time/",
-  "fiction/queen_of_spades": "https://dersavage.github.io/fiction/posts/queen-of-spades/",
-  "fiction/the_italian": "https://dersavage.github.io/fiction/posts/the-italian/",
-  "fiction/adjustment_team": "https://dersavage.github.io/fiction/posts/adjustment-team/",
-  "fiction/dune": "https://dersavage.github.io/fiction/posts/dune/",
-  "fiction/diary_of_madman": "https://dersavage.github.io/fiction/posts/diary-of-madman/",
-  "fiction/the-girl-with-the": "https://dersavage.github.io/fiction/posts/the-girl-with-the/",
-  "fiction/the-hobbit": "https://dersavage.github.io/fiction/posts/the-hobbit/",
-  "fiction/middlemarch": "https://dersavage.github.io/fiction/posts/middlemarch/",
-  "fiction/-where-evil": "https://dersavage.github.io/fiction/posts/where-evil/",
-  "fiction/darker-than-amber": "https://dersavage.github.io/fiction/posts/darker-than-amber/",
-  "non-fiction/game_theory101": "https://dersavage.github.io/non-fiction/posts/game-theory101/",
-  "non-fiction/verbal_judo": "https://dersavage.github.io/non-fiction/posts/verbal-judo/",
-  "non-fiction/lets_have_healthy_children": "https://dersavage.github.io/non-fiction/posts/lets-have-healthy-children/",
-  "non-fiction/the_ruby_book": "https://dersavage.github.io/non-fiction/posts/the-ruby-book/",
-  "non-fiction/ayn-rand": "https://dersavage.github.io/non-fiction/posts/ayn-rand/"
- }
 }
