@@ -85,7 +85,7 @@ function home() {
   $("#content").appendChild($("#home").content.cloneNode(true));
   $("#home-cards")?.insertAdjacentHTML("beforeend", (byId.about ? '<a class="card" href="#about"><b>About</b><span>Who I am</span></a>' : "") +
     M.sections.map(s => {
-      if (s.url) return `<a class="card" href="${esc(s.url)}"><b>${esc(s.title)}</b><span>Its own blog ↗</span></a>`;
+      if (s.url) return `<a class="card" href="${esc(s.url)}"><b>${esc(s.title)}</b><span>Go there now ↗</span></a>`;
       const n = pages.filter(p => p.section === s.id).length;
       return `<a class="card" href="#${s.id}"><b>${esc(s.title)}</b>` +
         `<span>${n} ${n === 1 ? "entry" : "entries"}</span></a>`;
